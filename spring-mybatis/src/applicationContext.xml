@@ -34,6 +34,8 @@
         <property name="dataSource" ref="dataSource" />
         <!-- 配置别名包扫描 -->
         <property name="typeAliasesPackage" value="cc.lijingbo.ssm.pojo"/>
+        <!-- 当 mybatis 的 xml和 mapper 接口不在同一个包下时，需要配置 mapperlocations 属性-->
+<!--        <property name="mapperLocations" value="classpath:cc/lijingbo/ssm/mapper/*.xml"/>-->
     </bean>
 
     <!-- 扫描包方式配置代理 mapper -->
