@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.lijingbo.ssm.mapper.UserMapper">
+    <select id="quertUserById" parameterType="int" resultType="user">
+        select * from user where id = #{id}
+    </select>
+
+    <select id="queryUserByUserName" resultType="user" parameterType="String">
+        select * from user where username like '%${value}%'
+    </select>
+
+    <insert id="saveUser" parameterType="user">
+        <selectKey keyProperty="id" keyColumn="id" order="AFTER"
+            resultType="int">
+            select last_insert_id()
+        </selectKey>
+        insert into user (username,sex,address) values (#{username},#{sex},#{address})
+    </insert>
+</mapper>
